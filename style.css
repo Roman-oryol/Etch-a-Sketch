@@ -1,19 +1,16 @@
 * {
   box-sizing: border-box;
 }
-/* 
-:root {
-  --grid-size: 16;
-} */
 
 main {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
+.grid-size-btn {
+  margin-bottom: 40px;
 }
 
 .canvas {
@@ -26,9 +23,3 @@ h1 {
 .highlight {
   background-color: #ddd450;
 }
-/* 
-.pixel {
-  flex: calc(100% / var(--grid-size));
-  height: calc(100% / var(--grid-size));
-  border: 1px solid black;
-} */
