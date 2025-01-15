@@ -1,8 +1,8 @@
 const canvas = document.querySelector('#canvas');
 
-let gridSize = 16;
+const initGridSize = 16;
 
-createPixels(gridSize);
+createPixels(initGridSize);
 
 function createPixels(gridSize) {
   for (let i = 1; i <= gridSize ** 2; i++) {
@@ -42,4 +42,7 @@ function getGridSize() {
   return gridSize;
 }
 
-console.log(getGridSize());
+function resizeGrid(gridSize) {
+  canvas.innerHTML = '';
+  createPixels(gridSize);
+}
