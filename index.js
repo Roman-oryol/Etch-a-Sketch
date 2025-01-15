@@ -23,7 +23,7 @@ function displayPixel(pixel, container) {
 }
 
 function paintPixel(evt) {
-  evt.target.classList.add('highlight');
+  evt.target.style.backgroundColor = getRandomColor();
 }
 
 function getGridSize() {
