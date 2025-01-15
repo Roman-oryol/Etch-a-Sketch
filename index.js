@@ -1,8 +1,11 @@
 const canvas = document.querySelector('#canvas');
+const setGridSizeBtn = document.querySelector('#grid-size-btn');
 
 const initGridSize = 16;
 
 createPixels(initGridSize);
+
+setGridSizeBtn.addEventListener('click', resizeGrid);
 
 function createPixels(gridSize) {
   for (let i = 1; i <= gridSize ** 2; i++) {
@@ -42,7 +45,11 @@ function getGridSize() {
   return gridSize;
 }
 
-function resizeGrid(gridSize) {
+function resizeGrid() {
+  const gridSize = getGridSize();
+  if (gridSize === undefined) {
+    return;
+  }
   canvas.innerHTML = '';
   createPixels(gridSize);
 }
