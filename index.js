@@ -1,11 +1,13 @@
 const canvas = document.querySelector('#canvas');
 const setGridSizeBtn = document.querySelector('#grid-size-btn');
+const resetBtn = document.querySelector('#reset');
 
-const initGridSize = 16;
+let gridSize = 16;
 
-createPixels(initGridSize);
+createPixels(gridSize);
 
 setGridSizeBtn.addEventListener('click', resizeGrid);
+resetBtn.addEventListener('click', reset);
 
 function createPixels(gridSize) {
   for (let i = 1; i <= gridSize ** 2; i++) {
@@ -62,7 +64,7 @@ function getGridSize() {
 }
 
 function resizeGrid() {
-  const gridSize = getGridSize();
+  gridSize = getGridSize();
   if (gridSize === undefined) {
     return;
   }
@@ -77,4 +79,9 @@ function getRandomColor() {
   const b = getRandomValue();
 
   return `rgba(${r}, ${g}, ${b}, 0.1)`;
+}
+
+function reset() {
+  canvas.innerHTML = '';
+  createPixels(gridSize);
 }
