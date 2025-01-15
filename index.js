@@ -23,7 +23,23 @@ function displayPixel(pixel, container) {
 }
 
 function paintPixel(evt) {
-  evt.target.style.backgroundColor = getRandomColor();
+  const pixel = evt.target;
+
+  if (pixel.style.backgroundColor === '') {
+    pixel.style.backgroundColor = getRandomColor();
+    return;
+  }
+
+  let pixelColor = pixel.style.backgroundColor;
+  let pixelOpacity = Number(pixelColor.slice(-4, -1));
+
+  if (pixelOpacity < 1) {
+    pixelOpacity += 0.1;
+    pixel.style.backgroundColor = pixelColor.replace(
+      pixelColor.slice(-4, -1),
+      String(pixelOpacity)
+    );
+  }
 }
 
 function getGridSize() {
@@ -60,5 +76,5 @@ function getRandomColor() {
   const g = getRandomValue();
   const b = getRandomValue();
 
-  return `rgb(${r}, ${g}, ${b})`;
+  return `rgba(${r}, ${g}, ${b}, 0.1)`;
 }
